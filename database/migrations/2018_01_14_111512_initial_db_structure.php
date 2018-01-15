@@ -125,6 +125,7 @@ class InitialDbStructure extends Migration
             $table->integer('species_id')->unsigned();
             $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('species_id')->references('id')->on('species')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['people_id', 'species_id']);
         });
 
         Schema::create('people_to_starships', function ($table) {
@@ -133,6 +134,7 @@ class InitialDbStructure extends Migration
             $table->integer('starship_id')->unsigned();
             $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('starship_id')->references('id')->on('starships')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['people_id', 'starship_id']);
         });
 
         Schema::create('people_to_vehicles', function ($table) {
@@ -141,6 +143,7 @@ class InitialDbStructure extends Migration
             $table->integer('vehicle_id')->unsigned();
             $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['people_id', 'vehicle_id']);
         });
 
         Schema::create('people_to_films', function ($table) {
@@ -149,6 +152,7 @@ class InitialDbStructure extends Migration
             $table->integer('film_id')->unsigned();
             $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['people_id', 'film_id']);
         });
 
         Schema::create('starships_to_films', function ($table) {
@@ -157,6 +161,7 @@ class InitialDbStructure extends Migration
             $table->integer('film_id')->unsigned();
             $table->foreign('starship_id')->references('id')->on('starships')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['starship_id', 'film_id']);
         });
 
         Schema::create('vehicles_to_films', function ($table) {
@@ -165,6 +170,7 @@ class InitialDbStructure extends Migration
             $table->integer('film_id')->unsigned();
             $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['vehicle_id', 'film_id']);
         });
 
         Schema::create('planets_to_films', function ($table) {
@@ -173,6 +179,7 @@ class InitialDbStructure extends Migration
             $table->integer('film_id')->unsigned();
             $table->foreign('planet_id')->references('id')->on('planets')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['planet_id', 'film_id']);
         });
     }
 
