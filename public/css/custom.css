@@ -1,0 +1,34 @@
+.container.custom {
+    width: 94%;
+}
+
+.actions-column {
+    text-align: right;
+}
+
+.actions-column .btn-group .btn {
+    height: 32px;
+    padding: 3px 10px;
+}
+
+.pagination {
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+table.person-info td {
+    vertical-align: top;
+}
+
+table.person-info td.bold {
+    min-width: 100px;
+}
+
+ul.person-props-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
